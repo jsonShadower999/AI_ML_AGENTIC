@@ -1,0 +1,62 @@
+::: request response lifecycle ?
+  request/urldispatcher_mapper/view_selection->processing/response_building/template_integration
+::: form validation in django ?
+::: why django opt for MVT ?how it enforce DRY design pattern ?
+::: how to handle static files during code deploy ? load balancing ?
+::: Api authentication n authorisation ?
+::: select_related vs prefetch_related ?
+::: sclar objects ? readonly , immutable , threadsafe ,hashable , can be debug faster 
+::: types of views ? functional /class ?
+::: why class view is more code safe n readable ?
+::: what are signals ? when to use signal programming ? 
+  * event based programming implementation 
+  * events pre_fetch, pre_save,pre_delete /post , user_logged_in/out 
+::: optimise the code ??
+  memory :caching, lazy_loading a module 
+  computation time:use library func , filters , immutable objects 
+  debug: debugtools , logger , session logs 
+  sql_db: db index, partitions , limit , denormalise tbls , join query optimisation  
+        : selectrelated() , prefetch_related() , only(), defer() , bulk_create()
+  loadbalancer:aws, cloudfront         
+:::apps vs project ? how to differentiate ?
+
+ ::: makemigration vs migrate  
+ ::: memcache vs redis  temporary data storage 
+ ::: kafka vs rabbitmq 
+
+ ::: Middleware ? functions init vs call ?  
+ ::: in url mapping ? render() , reverse() , redirect() , resolve() 
+ ::: inheritance in django ? 
+   Multitable inheritance vs Abstract-Base class 
+ ::: how to deploy wsgi file ?
+ ::: reverse proxy server? view--->url
+ ::pagination ?
+ ::: @csrf_exempt
+::: ETL ?
+::: what all lib used during exteraction ?boto3 
+::: can i automate the etl processusing DAG ?
+::: Different form in django ? model form  vs usecreativeform ?
+::: status code n when they occur ?
+::: how can i use mixin in microservice coding ? 
+::: regular inheritance code how it differs using mixin?
+::: static method , class method , instance method ?
+:::signals whats need , signal vs events of backend how they are different ?
+
+KAFFKA with any codebase!!!
+::: kafka , how its fast ?
+::: what happens when an object-->stream-->datapacket-->flows from a resource to a network socket ?
+::: Architecture of Network Socket ?
+::: why kaffka prefers TCP communication pattern ?
+::: when the data deletion happens in kaffka ?
+::: is indexing used in partition searching inside the topics ? 
+
+  
+  
+   
+    
+    
+    
+  
+  
+  
+  

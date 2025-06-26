@@ -1,0 +1,466 @@
+0. machine learning algorithm:math equation , a formulation y=f(x) , salary=f(experience,work_rate,soft_skill_habits)
+1. parametric Machine learning (ASSUMPTIONS MADE +parameters are known )algo:Linear regression ,logistic,linearsvm,naive bayes(assume: no intermediate feature dependency)
+2. non-parametric machine learning :(parameters are dynamic & uncertain)algo: Decision Tree, knn 
+3.Assumption of linear regression ?
+Y=MX+BIAS
+Y=W1X1+W2X2+W3X3+BIAS
+
+4. Loss function vs cost function
+standardization:::
+current_data-mean_of_feature/ standard_deviation (mean=0 , standard deviation=1)
+spread of data is reduced . mean of dataset is tried to achive middle val 
+distribution is same , n each value is reduced 
+5. loss function: gap between the predicted n real value + error rate +math function 
+6. convex loss function:join the two point in graph , then line will be inside the graph area 
+                        minima of the curve can be find out , the result is not ambiguous , the no of minima is specific n can be calculated 
+                        ml can be used to solve it no or less need of deep neural nets 
+7. non-convex loss function 
+8. deep learing or machine learning what/when to choose as solution ?
+9. false positive , false negative , true positive , true negative ?
+predict actual
+1           1   correct
+0           0    correct
+0           1    incorrect  fn
+1           0    incorrect   fp
+
+10. naive in naive bayes ?
+its supervised learning algo based on probability 
+assumption :x1 , x2 , x3 are independent of each other , biasii result 
+11. when median is more useful then mean ? central tendency , max occupied case followded by maximum no of points
+mean ::avg / total(outlier can disturb the distribution answer !!!)
+median: sorted middle term
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@@@@ ML BASIC START
+
+1. AI VS ML VS DL
+2. TYPE OF ML
+3. BATCH LEARNING VS ONLINE LEARNING
+4. INSTANCE BASED VS MODEL BASED LEARNING
+5. WHEN TO USE ML OR DL
+6. STEPS IN SOLVING ML PROBLEM
+PROBLEM  FRAME ---> ANALYSE NATURE OF PROBLEM--->CONVERT IT TO MATH PROBLEM AND WHATS UR TARGET ?--->COLLECT DATA -->DATA PREPROCESS --->
+EDA--->FEATURE EXTRACTION -----> MODEL TRAIN --->MODEL EVALUATION---> MODEL DEPLOY-->TEST-->OPTIMISE
+7. DATA COLLECTION (API, SCRAP , JSON , DATAWAREHOUSE FORMATION , PIPELINE DATA )
+
+
+
+
+
+@@@@ PRACTICAL ML
+
+pd.read_csv("file.csv",header=1)
+use_cols
+encoding="latin-1"
+error_badlines=False
+parse_date=['date_col_name']
+chunksize=4000
+
+PREPROCESS----
+df.shape()
+df.columns
+df.info()
+df.describe()
+df.head()+tail()+sample()
+df.duplicates().sum()
+df.isna().sum()
+df.corr()["target_col_name"] #will give all col relation with the target_col
+iloc vs loc
+EDA --- each feature that we have collected , want to understand its statistics & trend
+
+1. univariant & multi-variant analysis
+2. data can be numeric or categorical in nature
+3. in categorical u need to determine category count rate --->count_plot 
+4. in numeric  distplot , boxplot , histogram, scatter , pairplot , heatmap are used 
+
+for ALTERNATE ---use PANDAS PROFILER
+
+FEATURE ENGINEERING :Domain knowledge 
+has 
+1. Feature Transformation
+missing values ??
+string to categorical:binning
+string to numeric:encoding
+outlier
+feature scaling: normalisation(minmax, robust) , standardization 
+2. Feature Construction
+new feature creation from old feature
+
+3. Feature Selection
+removal of features 
+4. Feature Extraction
+completely new feature is created !!! where variance is reduced 
+PCA....lda
+
+
+
+normalization:::
+min_max scaling ::: imp
+mean normalization:::
+max absolute scaling:::
+robust scaling::: current-median /IQR(75th-25th)
+
+weight(kg) ---MINMAX SCALE( current_val - min_val_feature/max_val-min_val) 
+--distribution is between range 0 to 1
+--nature of distribution remains same 
+
+
+feature scaling is required or not?
+normalisation::: given quantilty min& max value is known
+              ::: image min val o n max is 255 then use it , when range is known
+standardization::: maximum used
+
+encoding the categorical data---
+nominal(each is equal imp) and ordinal data(hard,easy,medium)
+ordinal encoding ::: one-hot encoding 
+when target is categorical then do not use one-hot encoding
+Label encoding ::: when target is categorical
+
+#split the data
+from sklearn.preprocessing import OrdinalEncoder
+oe=OrdinalEncoder(categories=[["poor,"Avg","Good"],["school","ug","pg"]])
+oe.fit(x_train)
+x_train=oe.transform(x_train)
+y_train=le.transform(y_train)
+y_test=le.transform(y_test)
+
+--CATEGORICAL DATA WITH IN NOMINAL DATA
+ONE HOT ENCODING:::
+there are 7 color , then 7 col are added with 1 at the color which is true 
+MULTICOLLINEARITY:::no math relation between colors 
+n-1 col r used , to avoid multicolinearity , dummyvariable trap
+brand_of_car ---> take frequent car category , others{}
+pd.get_dummies(df,columns=['fuel','owner'],drop_first=True)
+sklearn.onehotencoding(train_test_split-->
+ohe=OneHotEncoder()
+new=ohe.fit_transform(x_train[['fuel','owner']]).toarray()
+xtrain[['brand','km_drive']].values
+np.hstack((xtrain['brand','km_driven']),
+
+
+column transformer:::----
+AGE,CITY,GENDER,COUGH,FEAVER,HAS_COVID
+    OHE           OE
+
+SPLIT X_TRAIN,X_TEST
+AGE,CITY,GENDER,COUGH,FEAVER
+>>> feaver me Simpleimputer to replcae missing val with mean val
+>>> ordinalencoder(cough,['mild','strong']) 
+>>> onehotencoder(gender,city)
+
+from sklearn.compose import ColumnTransformer
+transformer=ColumnTransformer(transformer=[
+(t_name1,SimpleTmputer(),['Fever']),
+(t_name2,OrdinalEncoder(categories=[['Mild','Strong'],['cough']),
+(t_name3,OneHotEncoder(sparse=False,drop='first'),['Gender','City'])
+],remainder='passthrough')
+transformer.fit_transform(x_train)
+transformer.fit_transform(x_test)
+
+
+@@@pipelines
+>>> train_test split
+>>> import pickle
+    pickle.dumb(parameterpassed,open("models/m1/pkl","wb"))
+
+
+VARIABLE TRANSFORMATION
+why?? 
+: > want to achieve normal distribution..
+>what5 is diff between noral vs skewed graph
+
+MATHMATICAL TRANSFORMATION::: function + power+ quantile transformer
+LOG_TRANSFORM::: 
+log base 10 of all feature value , use::: +vals , right skewed dataset use it 
+RECIPROCAL_TRANSFORM::: i/x value small--big, big--small
+square : for left skewed data
+square root: 
+POER()
+BOX-COX TRANSFORM::: bayesian algo , -5 to 5 , no greater than 0 
+YEO-JHONSON::: deerived after box-cox , it for negative n  o values 
+
+traintest split
+plt.distplot)age,
+probplot)age
+fair --- graph
+age close to 
+fair is right skewed
+model.fit()
+accuracy_score
+FunctionTransfiormer(np.log1p)
+np,log1p===no 0 as result
+
+binning 
+numerical data encoding 
+age : 23,29,8,38,90
+why to change??
+no_of_downloads:100,234456,23,3408320832,690
+               :100+,1000+,1k+,5k+(changed to category)
+>>> discretization /binning
+>>> binarization ::: numeric to binary
+                  ANNUAL INCOME <12LPA ... to binary for tax label
+
+0-100
+100-500
+500-1000
+1k-2k
+2k-4k
+5k+
+create abin for each like histogram
+handle outlier 
+improve the val spread:::uniform flow
+
+binning:unsup+sup+custom
+unsup::: equal /uniform binning , equal frequency binning , kmeans
+sup:decision tree binning
+
+
+
+@@datetime
+
+object to datetime
+data['date']=pd.to_datetime(data['date'])
+date['year']=data['date'].dt.year
+date['mon']=data['date'].dt.month/month_name
+date['day']=data['date'].dt.day
+np.where(date['date']).isin(['sunday','saturday')],1,0)//weekend test
+date['week']=data['date'].dt.week
+import datetime
+time_span=datetime.datetime.today()-data['date']
+
+
+handle missing value
+
+>>> df.dropna()
+>>> imputaton::: univariant analse , multivariant analyse
+>>> numerical mean , median , random , end of distribution
+>>> categorical ::: mode / missing
+
+---multivariant
+
+knn imputer
+iterative imputer
+simple imputer
+
+in producton no missing value handler !!!
+if more than 5%  of data missing , do not remove all rows
+
+
+
+df.isnull().mean()<0.05 then focus the column 
+numerical data then make histogram 
+now after removal then again plot histogram
+ratio remains same
+
+
+arbitary value imputation: in categorical data
+most frequent value imputation in categorical , mode 
+but it is biasyyy  
+
+random value imputation:::
+both categorical n numerical data 
+random in range use it  from already present data
+
+
+knn imputer ::: 
+
+
+outlier >>
+outlier dangerous
+detect outlier
+remove outlier/or keep it
+anamoly detection algo
+age 300 , no guess i can make , remove it
+linear regression , logistic, adaboast , deep learning get well effected by outlier
+weights calculation get disturbed ,,,,
+tree based algo are stable to outlier
+
+trimming:remove n thin the data
+capping:make a limit for each feature 
+discritization ::: numeric to bin formation
+
+zscore between -3 to 3 then its not outlier
+if observation mean+3 sd, mean-3sd then its  a outlier , n need treatment  when it is close to normal distribution
+
+
+if skewed dataset , use box plot to get max, min , median vals
+if anyno afte min , aftermax then remove it
+
+boxplot ::: for any numerical column
+         ::: 0%, 25% , 75%, 50% ,100%---89 valy
+
+iqr=q3-q1
+    75-25
+min=q1-1.5iqr
+
+
+
+max=q3+1.5iqr
+
+
+winsorization
+
+
+---------------------------------------------------------------------------
+feature construction:::
+feature spliting:::
+
+manually$$$
+family_size=sibling+homemem+1
+and transformfer to make new feature
+
+df.groupby('title).mean()
+-----------------------------------------------------------
+
+curse of dimensionality:::
+>>> after model building , you start to meleminate features n try to find accuracy...
+>>> to find the cut shot how many effective feature is needed 
+>>> optimal point judgement
+>>> image , text data , --->SPARSITY increases ; 
+dimension reduction--->
+reduce no of col
+feature selection (forward selection , backward elevation)
+feature extraction(PCA,LDA,tsne)
+
+
+PCA :::
+
+unsup learn algo
+complex technique--math aspect
+algo execution is fast 
+visalization of 10 d --- to 3d --plot graph n visualise
+>>> projection of data on x axis , projection of data on y axis , where spread is more /variance is more, pick it ,
+>>> if the projection of set of columns are similar variance , similar sppread ,,,, none :<
+>>> take another axis pca2 and try to find spread n check ...
+>>> you can transform upto n-1  level to check n diagnose spread 
+>>> spread is proportional to variance 
+
+
+
+f1 + f2+ f3+ target
+
+
+1... mean centered (standardization)
+2.. find covariance , interdependency
+3.. find eigen value /vector
+4.. cov matrix
+
+
+model build
+accuracy find
+scale the features x_terain , x_test
+pca=PCA(n_components=None)
+x_train=pca.fit_transform(x_train)
+x_test=pca.transform(x_test)
+x_train.shape--same no of cols
+PCA(n_components=100)
+---cols=100
+use the algo n train again the model
+find accuracy
+pca.expalined_variance_
+#eigen values
+pca.components_.shape
+optimal value of pca
+765 features 
+---lambda 1,..... lamba 765(eigen value of a vector)
+----lambada1/sum*100---variance of lambda 1
+30% 25 15 10 5 ....lamba 15 ===90%
+
+when it fails
+>>>> data is circular , symmetric distribution with same spread is problem
+>>>> when data is having equation , a pattern in dimension 
+>>> if distance from center is same in x n y axis 
+
+
+
+
+
+
+
+
+
+2... 
+
+
+
+do feature extraction....
+
+room + washroom+price
+sqare_feet_area/size_flat + price
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

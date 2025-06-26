@@ -1,0 +1,7 @@
+# openai
+# langchain
+# streamlit
+
+streamlit
+pyngrok
+google-generativeai

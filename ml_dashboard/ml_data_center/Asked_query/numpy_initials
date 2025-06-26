@@ -1,0 +1,14 @@
+difference between arr.size vs arr.shape
+why use numpy if i have array
+how to create identity matricx 
+linspace vs arange 
+shallow copy vs deep copy 
+random().randint() vs seed()
+universal functions ?/
+numpy faster than list why?
+normalisation technique used to normailse nupy array
+
+np.mean() method calculates the arithmetic mean and provides additional options for input and results. For example, it has the option to specify what data types have to be taken, where the result has to be placed etc.
+np.average() computes the weighted average if the weights parameter is specified. In the case of weighted average, instead of considering that each data point is contributing equally to the final average, it considers that some data points have more weightage than the others (unequal contribution)
+
+broadcast vs vectorisation  

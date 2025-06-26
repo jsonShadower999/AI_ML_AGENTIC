@@ -1,0 +1,159 @@
+context advertise
+email detection n removal
+social media monitoring n political decision pre detedtion
+search engine optimisation
+chatbot
+uiagent
+
+text /doc classification 
+sentiment analyse
+info retrival , named entity recognisation
+translate lang  deep learn
+conversation agent speech /text
+text summarization...
+topic modeling , what the topic is about!!!
+text auto generation in keyboard , gramitic highlights 
+
+
+heuristic method: 
+rule based algo ,regular exp , wordnet(mapping organised relation with similar words),open mind cs,
+
+ml: 
+text--->numeric-->ML--->predict!!!
+NAIVE BAYES , LOGISTIC REGRESSION , SVM , LDA , HIDDEN MARKOW MODELS
+dl
+sequential information is understood by machine 
+feature generation is done automatically
+RNN ,LSTM ,GRU/CNN , Transformer (attention to each part of phrase) , Autoencoder
+
+
+Challenges :::
+Ambiguity :sarcasam !!
+tone of person!!
+contextual words 
+slang/idioms
+spell error
+
+_________________________________________________
+NLP pipeline:::
+Data Acquire
+Text Prepare(text cleanup + basic processing +adv preprocess)
+Feature Engineering  text to no BAGOFWORD, W2V, D2v
+Modelling
+Model evaluate
+deploy on cloud service 
+model update or replace
+----------------------------------------------------
+
+1. Data Acquire :::
+
+#analyse sentiment of customer 
+
+Data Augmentation :::creating more data 
+public data , scrap , cmp _review , pdf , apis:RapidAPI , competitive web data :: beautifulsoup
+------------------------
+Text clean ::: html tag removal , eoji convertor , spelling improve 
+basic preprocess:  tokenization(word, sentence)::: list of sentence /list of words
+                   stopword 
+                   stemming same mean word make it in root form
+                   remove digit /puncuations :reg exp 
+                   convert in lower case 
+                   lang detection
+Adv preprocess:
+             pos taqgging 
+             parsing
+             core frame resolution 
+---------------------------------------------------------------
+Feature Engineering :::
+ text to numbers 
+ #movie review datatset (movie_review,sentiment)
+                        (noof+words, noof-words,noof_neutral_words , sentiment)
+
+ml_based_algo pipeline:::
+data-->preprocessed_data-->feature_creation-->algo_apply
+>>> result can be questioned for why??
+
+deep_learning_algo pipeline:
+auto generation of embeddings 
+>>> result cannt be backtracked in good n bad cases 
+
+------------------------------------------------------
+
+modeling:(amt of data , nature of problem)
+
+>heuristic in @small_dataset, @word_grasping
+>ml algo       medium_dataset
+>dl            large_dataset
+TRANSFER LEARNING ;apply on your dataset
+>cloud api hits  
+
+--------------------------------------------
+evaluation::: 
+intrinsic eval: perplexity
+extrinsic eval
+-----------------------------------------------
+deploy:::
+
+api ( amicroservice is deploy)
+monitor dashboard  with evaluation key & historical data
+***online model
+------------------------------------------------------------------
+Assignment::: 
+given two question u need to tell they r same or not 
+
+>>> if the sen starts with question tags then its a question...
+>>>> tokensization, lemmitization , con to numeric
++word
+-word
+neutral_word
+total_sen_length
+domain_ques
+sen_len_ratio
+semantic similarity 
+word_similar_count
+overall_review_pattern
+total_review
+no_of_ques_tag_used
+review_type
+
+
+----------------------------------------------------------------
+classify the text category is of sales , support 
+/////////////////////////////////////////////////////////////////////////
+BASIC TEXT PREPROCESS===>
+
+>LOWERCASE: str.lower()
+>HTML tags : df['review].apply(remove_html_tags)
+>remove URL :pattern=re.complie(r'https?://\s+|www\.\s+')
+>remove puncuations: df['review'].apply(remove_punc)
+>modify chat shorthands: make a dict_mapping of shorthand n actual 
+>spell check : pyspellchecket , TextBlob(text_user)
+>remove stop words : *** not used in pos technique
+eg: article , puntuations 
+new_list.append(word) if word in stopwords.word('english') 
+>emoji removal : remove , replace with text data 
+import emoji
+print(emoji.demojize('user_text'))
+>Tokenization: break in small parts
+               word tokenization , sentence tokenization
+problems: prefix , suffix , infix , bracket , unit , email,hypen based word , shortname understanding
+        : sentence.split(), sentence.split('.')
+        : regular exp pattern eg:finall,compile
+        : NLTK , word_tokenize(sentence) , sentence_tokenize(sentence)
+        :*** spacy library , convert to documents 
+
+stemming:walk, walked , walking , walks  convert to root word 
+        :NLTK by porter stemmer
+        :lemmatization is improved version , but its slow 
+        :it goes n see in the dict wordnet by   NLTK.WordNetLemmatizer()
+        
+
+
+Assignment
+create dataset(tmdbapi) then text-preprocess
+moviesd ataset (description , genre[] ,name) 
+in description use text-preprocess
+
+
+
+

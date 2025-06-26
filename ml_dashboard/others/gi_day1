@@ -1,0 +1,45 @@
+@GEN AI
+1. TRANSFORMER ARCHITECTURE ?
+2. ENCODER ONLY + DECODER ONLY + ENCODER & DECODER TRANSFORMER ?
+3. BERT , GPT ARCHITECTURE ?
+4. BUILD PHASE (PRETRAIN , OPTIMISE, FINETUNE, EVALUATE , DEPLOY)
+5. LANGCHAIN?
+All the llm model that r developed in market place can be wrapped n used through langchain library 
+Its free to use interface to talk to multiple llm , use them in various ways , integrate them with boilerplate code ready way
+
+
+langchain components:
+model interface: to provide interface to use different prebuilt ai model 
+model types:::
+1. lang model: text-->text generation ...../ LLM  n chatmodel are usecase , where chatmodel is adv version of llm---->opensourcemodel &closesourcemodel
+2. embedding model: text-->embedding _as output------->opensourcemodel &closesourcemodel 
+                         ---> embedded query , embedded document
+prompt : use of PromptTemplate , ChatPromptTemplate to develop more specific prompt to query to the model
+========>specification ::: context , domain , user_category, the doc size , the doc difficulty level , task specific , example based prompt (few-shot prompt)
+===>static & dynamic prompt
+--->prompt template vs passing string parameter 
+
+
+chaining ::: automatic flow of data in processed form from one layer to another 
+parallel chaing , individual chaining 
+
+
+memory::
+
+
+chat memory :::: system_msg , Human_msg , AI_msg 
+message_placeholder==> i want to maintain chat history n load it in next chat session  to answer the new chat query 
+
+memory: 
+LLM apis are stateless
+conversation buffer memory, conv. buffer window memory, sumarise based memory , custom memory  is used in chat models
+
+
+agent ::: Natural lang process + text generation + task completion + automation 
+
+
+
+==> temperature parameter in langchain>
+===>sematic search vs keyword search 
+
+

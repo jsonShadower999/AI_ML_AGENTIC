@@ -1,0 +1,46 @@
+LINEAR REGRESSION
+>>> hy=mx+mx+c
+>>> m  is dependency/weight , c is bias /offset 
+>>> its affected to outlier 
+>>> supervised algo 
+>>> simple + multiple + polynomial linear regression
+>>> 1 input 1 output
+>>> n input  1 output
+>>> it assumes the feature is having linear relation with each other ....
+>>> best fit line
+>>> ols---sklearn and gradient descent ---sgdregressor
+b=y-mx
+m=sum(x-xmean)(y-ymean)/ sum(x-xmean)**2
+error function :::m vs b(slope vs bias)
+                  differentiate ===0 to initmfind minima
+                  f(x,y)
+                  d e/dm  && de/dbias ==0 to find m n bias
+
+linear regressor me
+init + predict(xtest) + fit(x_train,y_train)
+
+dataset import
+train test split
+lr=lrmine()
+
+
+fit():
+num=0,deno=0
+ for i in range x_train.shape[0]:
+ #for each student find mean 
+          num=num+(x[i]-x_mean)*(y[i]-y_mean)
+          deno=deno+(x[i]-x_mean)**2
+slope=num/deno
+bias=y_mean.mean()-slope*x_train.mean()
+
+
+
+REGRESSION MATRIX::::
+
+          
+             
+
+
+                  
+
+  
