@@ -1,0 +1,110 @@
+what is generative AI???
+
+>>> generate text, audio, videos 
+>>> finding patterns in data and giving predictions 
+>>> creative and business writing BLOG,ARTICLE,EMAIL , advertisement
+>>> software dev eg genc of error , debug 
+>>> customer support eg chatbot of user query handler 
+>>> edit n design graphics,design tools , info graphics 
+--------------------------------------------------------------------------------
+
+PROBLEM::: HIRE BACKEND ENGINEER 
+create job description/draft 
+post JD in all platforms 
+shortlist the applicant 
+schedule interview
+roll up offer letter 
+on board 
+
+generative ai : flow by human/memory issue /actions is generic not specific / automated flow is less 
+
+-----------------------------------------------------------------
+IMPROVEMENTS:::
+>>> past JD feed it , hiring strategy , hiring salaries details , profile pointers , quesbank , on board details , user details needed (FEED THESE SPECIFIC DETAILs)
+>>> RAG based chatbot implementation !!!
+------------------------------------------------------------------
+IMPROVEMENT NEEDED !!!
+reactive/memory issue / automated is off 
+
+ACTION PERFORMED !!!
+Tools Linkedin,resume parser , calendar api , naukri , mail , HRM portal integrate with chatbot 
+Tool Augmented Chatbot 
+
+-------------------------------------------------------------------
+IMPROVEMETNS:::
+REACTIVE, MEMORY , the model is not pre active , problem is always identified by human in flow and alternate path is analysed by human
+
+ACTION NEEDED!!!
+
+--------------------------------------------------------------------
+
+Langchain =>
+Langchain ....framework to build llm based application 
+
+Notes upload it , and make a llm chat system that can be queried 
+
+1. user query is generated 
+2. a sematic search is done upon the pdf stored in database 
+3.  a system query is generated {pages+ user_query} 
+4. feed to machine(llm) Natural ; "lang processing+context_aware_text_gen"
+5. output is generated 
+
+
+keyword search
+sematic search 
+
+
+-----------------
+
+1. PDF upload on AWS S3 
+doc loader to load docs 
+2. Split PDF into pages 
+3. text spliter 
+4. for each page extract embeddings 
+5. store the concatination of embedding in Database 
+
+Langchain has 
+1. models 
+2. prompts 
+3. chains 
+4. memory 
+5. indexes
+6. agents
+
+
+OpenAi code 
+GoogleAPi code 
+Clauda api 
+
+Langchain is the interface that can communicate to all type of code of llms 
+
+
+from langchain_openai import ChatOpenAI 
+from dotenv import load_dotenv 
+load_dotenv()
+model=ChatOpenAi(model="",temperature=0)
+result=model.invoke("your text msg that u want to query")
+print(result.content)
+
+
+langchain--> language model , embedding models 
+
+text-->text    
+text--->vectors 
+
+
+model 
+prompt topic , context, emotions 
+chains are used to build pipeline 
+accept_input-->llm _trace --->translated_text--->LLM --->hindi translates 
+indexes ::: docloader,textspliter,vector store,retrival
+memory ::: llm api calls are stateless , no history learing 
+agents :::llm that can do task 
+
+
+
+Language model::: text-->text 
+
+llm vs (chat models ::: memory_history)
+
+
